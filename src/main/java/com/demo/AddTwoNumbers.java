@@ -26,6 +26,7 @@ public class AddTwoNumbers extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.print("<html><body>");
 		out.print("<b>Sum is </b>"+ result+"<br><br>");
+		out.print("<b>Success</b>");
 		out.print("</body></html>");	
 	}	
 }
