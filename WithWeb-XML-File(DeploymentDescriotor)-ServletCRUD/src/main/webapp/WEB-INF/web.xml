@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>WithWeb-XML-File(DeploymentDescriotor)-ServletCRUD</display-name>
+  
+  
+  <servlet>
+    <servlet-name>AddUser</servlet-name>
+    <servlet-class>com.amarjeet.crud.controller.AddUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddUser</servlet-name>
+    <url-pattern>/add-user</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <servlet>
+    <servlet-name>UpdateUser</servlet-name>
+    <servlet-class>com.amarjeet.crud.controller.UpdateUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateUser</servlet-name>
+    <url-pattern>/update-user</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>FetchUserServletById</servlet-name>
+    <servlet-class>com.amarjeet.crud.controller.FetchUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FetchUserServletById</servlet-name>
+    <url-pattern>/fetch-user</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>FetchAllUsersServletAll</servlet-name>
+    <servlet-class>com.amarjeet.crud.controller.FetchAllUsersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FetchAllUsersServletAll</servlet-name>
+    <url-pattern>/fetch-all-users</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>DeleteUserByIdServlet</servlet-name>
+    <servlet-class>com.amarjeet.crud.controller.DeleteUserByIdServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteUserByIdServlet</servlet-name>
+    <url-pattern>/delete-user-by-id</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>DeleteAllUsersServlet</servlet-name>
+    <servlet-class>com.amarjeet.crud.controller.DeleteAllUsersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteAllUsersServlet</servlet-name>
+    <url-pattern>/delete-all-users</url-pattern>
+  </servlet-mapping>
+</web-app>
