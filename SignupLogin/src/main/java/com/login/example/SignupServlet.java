@@ -29,7 +29,10 @@ public class SignupServlet extends HttpServlet {
                         // Email already exists, set error message and forward back to signup page
                         request.setAttribute("errorMessage", "A user with this email already exists.");
                         request.getRequestDispatcher("signup.jsp").forward(request, response);
-                        return;
+//                    	request.setAttribute("errorMessage", "A user with this email already exists.");
+//                    	request.getRequestDispatcher("signup.jsp").include(request, response);
+
+                      return;
                     }
                 }
             }

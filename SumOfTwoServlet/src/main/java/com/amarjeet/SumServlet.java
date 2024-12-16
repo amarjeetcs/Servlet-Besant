@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 // The @WebServlet annotation maps this servlet to a URL pattern
-@WebServlet("/SumServlet1")
+//@WebServlet(name = "usha", urlPatterns = "/SumServlet1")
 public class SumServlet extends HttpServlet {
 	static {
 	    try {

@@ -4,19 +4,23 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.GenericServlet;
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 
 import org.apache.catalina.connector.Response;
 
-public class HelloWorldServlet extends GenericServlet{
+public class HelloWorldServlet extends HttpServlet{
 
 	
 	@Override
 	
 	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+		System.out.println("Hello Servlet Java");
 		PrintWriter out=res.getWriter();
 		out.print("<html>");
 		out.print("<body>");
@@ -24,6 +28,30 @@ public class HelloWorldServlet extends GenericServlet{
 		out.print("</html>");
 		out.print("</body>");
 		
+		
+	}
+
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ServletConfig getServletConfig() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getServletInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		// TODO Auto-generated method stub
 		
 	}
 	

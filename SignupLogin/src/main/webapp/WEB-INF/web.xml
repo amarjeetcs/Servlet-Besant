@@ -13,7 +13,7 @@
         <welcome-file>default.htm</welcome-file>
     </welcome-file-list>
  
-    Signup Servlet Configuration
+    
     <servlet>
         <servlet-name>SignupServlet</servlet-name>
         <servlet-class>com.login.example.SignupServlet</servlet-class>
@@ -23,7 +23,7 @@
         <url-pattern>/signup</url-pattern>
     </servlet-mapping>
 
-    Login Servlet Configuration
+   
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.login.example.LoginServlet</servlet-class>
@@ -42,7 +42,7 @@
         <url-pattern>/reset-password</url-pattern>
     </servlet-mapping>
 
-    Forgot Username Servlet Configuration
+   
     <servlet>
         <servlet-name>ForgotUsernameServlet</servlet-name>
         <servlet-class>com.login.example.ForgotUsernameServlet</servlet-class>
@@ -52,7 +52,7 @@
         <url-pattern>/forgot-username</url-pattern>
     </servlet-mapping>
 
-    Forgot Password Servlet Configuration
+    
     <servlet>
         <servlet-name>ForgotPasswordServlet</servlet-name>
         <servlet-class>com.login.example.ForgotPasswordServlet</servlet-class>
