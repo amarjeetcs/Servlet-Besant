@@ -21,14 +21,21 @@
             text-align: center;
             margin-bottom: 30px;
         }
-        table {
-            margin-top: 20px;
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
-        th, td {
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+        .home-btn {
+            margin-top: 30px;
             text-align: center;
         }
-        .table-striped tbody tr:nth-child(odd) {
-            background-color: #f1f1f1;
+        .home-btn a {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -43,36 +50,39 @@
 
         if (userList != null && !userList.isEmpty()) {
     %>
-        <table class="table table-striped table-bordered table-hover">
-            <thead class="thead-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Number</th>
-                    <th>Course</th>
-                    <th>State</th>
-                    <th>Country</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%
-                    for (Student user : userList) {
-                %>
-                <tr>
-                    <td><%= user.getId() %></td>
-                    <td><%= user.getName() %></td>
-                    <td><%= user.getEmail() %></td>
-                    <td><%= user.getNumber() %></td>
-                    <td><%= user.getCourse() %></td>
-                    <td><%= user.getState() %></td>
-                    <td><%= user.getCountry() %></td>
-                </tr>
-                <%
-                    }
-                %>
-            </tbody>
-        </table>
+        <div class="row">
+            <%
+                for (Student user : userList) {
+            %>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        User ID: <%= user.getId() %>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Name: <%= user.getName() %></h5>
+                        <p class="card-text">
+                            <strong>Email:</strong> <%= user.getEmail() %><br>
+                            <strong>Number:</strong> <%= user.getNumber() %><br>
+                            <strong>Course:</strong> <%= user.getCourse() %><br>
+                            <strong>State:</strong> <%= user.getState() %><br>
+                            <strong>Country:</strong> <%= user.getCountry() %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <%
+                }
+            %>
+        </div>
+
+        <!-- Home Button -->
+        <div class="home-btn">
+            <a href="index.jsp" class="btn btn-primary btn-lg">
+                Go to Homepage
+            </a>
+        </div>
+
     <%
         } else {
     %>

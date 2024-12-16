@@ -59,6 +59,12 @@
             color: #007bff;
             margin-bottom: 20px;
         }
+
+        .home-btn {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center; /* Centers the button horizontally */
+        }
     </style>
 </head>
 <body>
@@ -104,6 +110,13 @@
         <%
             }
         %>
+    </div>
+
+    <!-- Home Button -->
+    <div class="home-btn">
+        <a href="index.jsp" class="btn btn-primary btn-lg">
+            Go to Homepage
+        </a>
     </div>
 
     <!-- Bootstrap JS -->
