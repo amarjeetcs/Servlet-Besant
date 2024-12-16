@@ -1,14 +1,4 @@
 package com.amarjeet.crud.controller;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import com.amarjeet.crud.model.Student;
-
-import javax.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,8 +7,19 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.amarjeet.crud.model.Student;
+
+/*@WebServlet(name = "fetchAllServlet", urlPatterns = "/fetch-all-users")*/
 public class FetchAllUsersServlet extends HttpServlet {
 
+    // Database connection details
     private static final String DB_URL = "jdbc:mysql://localhost:3306/crud_demo";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "root";
@@ -34,11 +35,10 @@ public class FetchAllUsersServlet extends HttpServlet {
         }
     }
 
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        List<Student> userList = new ArrayList<>();
+        List<Student> userList = new ArrayList<Student>();
         
         try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(FETCH_ALL_USERS_SQL)) {
@@ -66,7 +66,7 @@ public class FetchAllUsersServlet extends HttpServlet {
         }
 
         // Forward to the JSP page to display user details
-        RequestDispatcher dispatcher = request.getRequestDispatcher("fetchUser.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("fetch-data.jsp");
         dispatcher.forward(request, response);
     }
 }

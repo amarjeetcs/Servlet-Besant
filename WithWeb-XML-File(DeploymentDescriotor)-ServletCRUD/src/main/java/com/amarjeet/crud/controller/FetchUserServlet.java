@@ -14,9 +14,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 
+/*@WebServlet(name = "fetchUserServlet", urlPatterns = "/fetch-user")*/
 public class FetchUserServlet extends HttpServlet {
 
     private static final String DB_URL = "jdbc:mysql://localhost:3306/crud_demo";
@@ -37,18 +36,20 @@ public class FetchUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String userId = request.getParameter("userId");
-        List<Student> userList = new ArrayList<>();
+
+        String userId = request.getParameter("userId");  // Get the user ID from the request
+        Student user = null;  // We'll use a single Student object instead of a list
 
         try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(FETCH_USER_SQL)) {
-            
+
+            // Set the user ID parameter in the SQL query
             preparedStatement.setInt(1, Integer.parseInt(userId));
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            while (resultSet.next()) {
-                Student user = new Student();
+            if (resultSet.next()) {
+                // If a user is found, map the result set to a Student object
+                user = new Student();
                 user.setId(resultSet.getInt("id"));
                 user.setName(resultSet.getString("name"));
                 user.setEmail(resultSet.getString("email"));
@@ -56,19 +57,18 @@ public class FetchUserServlet extends HttpServlet {
                 user.setCourse(resultSet.getString("course"));
                 user.setState(resultSet.getString("state"));
                 user.setCountry(resultSet.getString("country"));
-                userList.add(user);
             }
-            
-            // Set the user list as an attribute
-            request.setAttribute("userList", userList);
-            
+
+            // Set the user as an attribute (null if not found)
+            request.setAttribute("user", user);
+
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("error", "Error fetching user details");
         }
 
-        // Forward to the index.jsp page to display user details
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        // Forward to the JSP page to display user details or error message
+        RequestDispatcher dispatcher = request.getRequestDispatcher("fetchById.jsp");
         dispatcher.forward(request, response);
     }
 }

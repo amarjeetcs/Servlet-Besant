@@ -19,7 +19,7 @@ import com.amarjeet.crud.model.Student;
 @WebServlet(name = "fetchAllServlet", urlPatterns = "/fetch-all-users")
 public class FetchAllUsersServlet extends HttpServlet {
 
-    // Database connection details
+    // Database connection details this is part of configuration
     private static final String DB_URL = "jdbc:mysql://localhost:3306/crud_demo";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "root";
